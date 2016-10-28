@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
         public void onError(Call call, Exception e, int id)
         {
             e.printStackTrace();
-            mTv.setText("onError:" + e.getMessage());
+            mTv.setText("onFail:" + e.getMessage());
         }
 
         @Override
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onError(Call call, Exception e, int id)
                     {
-                        mTv.setText("onError:" + e.getMessage());
+                        mTv.setText("onFail:" + e.getMessage());
                     }
 
                     @Override
@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onError(Call call, Exception e, int id)
                     {
-                        mTv.setText("onError:" + e.getMessage());
+                        mTv.setText("onFail:" + e.getMessage());
                     }
 
                     @Override
@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onError(Call call, Exception e, int id)
                     {
-                        mTv.setText("onError:" + e.getMessage());
+                        mTv.setText("onFail:" + e.getMessage());
                     }
 
                     @Override
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onError(Call call, Exception e, int id)
                     {
-                        Log.e(TAG, "onError :" + e.getMessage());
+                        Log.e(TAG, "onFail :" + e.getMessage());
                     }
 
                     @Override

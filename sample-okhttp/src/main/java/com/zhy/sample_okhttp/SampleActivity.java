@@ -1,61 +1,41 @@
 package com.zhy.sample_okhttp;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
-import com.zhy.http.okhttp.callback.Callback;
-
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Response;
 import tech.wangjie.httpmanager.HttpManager;
-import tech.wangjie.httpmanager.Request;
+import tech.wangjie.httpmanager.JsonRequest;
+import tech.wangjie.httpmanager.OkRequest;
+import tech.wangjie.httpmanager.StringHttpListener;
 
 /**
  * Created by djonce on 2016/10/27.
  */
-public class SampleActivity extends AppCompatActivity{
+public class SampleActivity extends Activity {
+
+    private static final String TAG = SampleActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
 
-        HttpManager httpManager = new HttpManager();
 
-        Request request = Request.builder();
-        httpManager.enqueue(request, new Call() {
-            @Override
-            public okhttp3.Request request() {
-                return null;
-            }
+        try {
+            String api = "http://test.19ba.cn/api/user.json";
+            OkRequest request = new JsonRequest(api);
 
-            @Override
-            public Response execute() throws IOException {
-                return null;
-            }
+            HttpManager.getInstance().enqueue(request, new StringHttpListener() {
+                @Override
+                public void onSuccess(String response) {
+                    Log.e(TAG, response);
+                }
+            });
 
-            @Override
-            public void enqueue(okhttp3.Callback responseCallback) {
-
-            }
-
-            @Override
-            public void cancel() {
-
-            }
-
-            @Override
-            public boolean isExecuted() {
-                return false;
-            }
-
-            @Override
-            public boolean isCanceled() {
-                return false;
-            }
-        });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
