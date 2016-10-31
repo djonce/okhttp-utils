@@ -3,6 +3,7 @@ package tech.wangjie.httpmanager;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -25,6 +26,7 @@ public class CallbackDelivery {
         try {
             Class.forName("android.os.Build");
             if (Build.VERSION.SDK_INT != 0) {
+                Log.e("CallbackDelivery", "--- init ----");
                 return new Android();
             }
         } catch (ClassNotFoundException ignored) {
@@ -55,6 +57,7 @@ public class CallbackDelivery {
 
         @Override
         public Executor getDefaultCallbackExecutor() {
+            Log.e("CallbackDelivery", "--- init ----");
             return new MainThreadExecutor();
         }
     }

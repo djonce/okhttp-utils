@@ -18,6 +18,7 @@ package com.zhy.http.okhttp.utils;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -63,6 +64,7 @@ public class Platform
         @Override
         public Executor defaultCallbackExecutor()
         {
+            Log.e("PlatForm", " ---- New MainThreadExecutor ----");
             return new MainThreadExecutor();
         }
 

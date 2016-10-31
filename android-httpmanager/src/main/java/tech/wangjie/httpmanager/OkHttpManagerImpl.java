@@ -42,7 +42,7 @@ public class OkHttpManagerImpl extends HttpManager {
                         return;
                     }
 
-                    if (response != null || !response.isSuccessful()) {
+                    if (response == null || !response.isSuccessful()) {
                         deliveryFailResult(new IOException("request failed ~, response code " + response.code()), realCallback);
                         return;
                     }

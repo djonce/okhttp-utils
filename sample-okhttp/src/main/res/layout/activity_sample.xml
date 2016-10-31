@@ -19,5 +19,6 @@
         android:text="New Button"
         android:id="@+id/button"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.02" />
+        android:layout_weight="0.02"
+        android:onClick="doClick" />
 </LinearLayout>
